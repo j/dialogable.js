@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ajaxy Dialogs</title>
+    <link href="../dialogable.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Bound by `$('a.dialogable').dialogable()` -->
+<a class="dialogable" href="remote.html">Launch Dialog</a>
+
+<!-- Bound by data-api as a button using `data-url` attribute -->
+<button data-toggle="dialog" data-url="remote.html">Launch Dialog Bound by data-api</button>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="../dialogable.js"></script>
+<script>
+    // bind dialogable behaviour manually
+    $('a.dialogable').dialogable();
+
+    // show event
+    $(document).on('show', 'a.dialogable, [data-toggle="dialog"]', function(e) {
+        console.log('Showing dialog');
+    });
+
+    // shown event
+    $(document).on('shown', 'a.dialogable, [data-toggle="dialog"]', function(e) {
+        console.log('Showed dialog');
+    });
+
+    // destroy event
+    $(document).on('destroy', 'a.dialogable, [data-toggle="dialog"]', function(e) {
+        console.log('Destroying dialog');
+    });
+
+    // destroyed event
+    $(document).on('destroyed', 'a.dialogable, [data-toggle="dialog"]', function(e) {
+        console.log('Destroyed dialog');
+    });
+</script>
+
+</body>
+</html>
